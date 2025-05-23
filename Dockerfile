@@ -1,9 +1,10 @@
+FROM jrottenberg/ffmpeg:4.4-ubuntu as ffmpeg
+
 FROM python:3.10-slim
 
-ENV DEBIAN_FRONTEND=noninteractive
+COPY --from=ffmpeg /usr/local /usr/local
 
 RUN apt-get update && apt-get install -y \
-    ffmpeg \
     libsm6 \
     libxext6 \
     && rm -rf /var/lib/apt/lists/*
