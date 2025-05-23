@@ -1,9 +1,7 @@
-FROM python:3.10
+FROM python:3.10-slim
 
-# Evita prompts interativos durante a instalação
 ENV DEBIAN_FRONTEND=noninteractive
 
-# Instalar dependências do sistema para moviepy
 RUN apt-get update && apt-get install -y \
     ffmpeg \
     libsm6 \
